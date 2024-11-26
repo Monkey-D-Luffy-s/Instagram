@@ -59,7 +59,6 @@ function Login() {
                   id="password"
                   handleblur={handleBlur}
                 />
-
                 <button className="py-1 rounded-md w-full bg-blue-600 text-sm font-bold mt-2 focus:bg-blue-500 outline-none">
                   Log in
                 </button>
