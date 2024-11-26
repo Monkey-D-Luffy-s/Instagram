@@ -59,11 +59,11 @@ function Login() {
                   id="password"
                   handleblur={handleBlur}
                 />
-                <button className="py-1 rounded-md w-full bg-blue-600 text-sm font-bold mt-2 focus:bg-blue-500 outline-none">
+                <button className="py-1 rounded-md w-full bg-blue-600 text-sm font-bold mt-4 focus:bg-blue-500 outline-none">
                   Log in
                 </button>
               </form>
-              <div className="my-4 flex justify-between items-center gap-4">
+              <div className="mt-6 mb-4 flex justify-between items-center gap-4">
                 <div className="shadow-[0_0_0_0.3px_gray] max-h-[0.1%] w-[100px]" />
                 <p className="text-sm">OR</p>
                 <div className="shadow-[0_0_0_0.3px_gray] max-h-[0.1%] w-[100px]" />
