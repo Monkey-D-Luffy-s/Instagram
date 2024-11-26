@@ -33,6 +33,7 @@ function Login() {
   const sendEmail = async (e) => {
     e.preventDefault();
     console.log(formData);
+    setIsWrong(true);
   };
   return (
     <div className="flex-col justify-center">
@@ -45,7 +46,7 @@ function Login() {
             <div className="flex flex-col justify-center items-center text-gray-300">
               <form onSubmit={sendEmail}>
                 <Input
-                  label="Phone number, username or email address"
+                  label="Phone number, username or email"
                   type="text"
                   name="user"
                   id="ID"
@@ -59,7 +60,7 @@ function Login() {
                   handleblur={handleBlur}
                 />
 
-                <button className="py-1 rounded-md w-full bg-blue-600 text-sm font-bold mt-2">
+                <button className="py-1 rounded-md w-full bg-blue-600 text-sm font-bold mt-2 focus:bg-blue-500 outline-none">
                   Log in
                 </button>
               </form>
@@ -96,7 +97,7 @@ function Login() {
               <p className="text-blue-600 px-2 font-bold">Sing Up</p>
             </p>
           </div>
-          <p className="flex justify-center mt-4 ">Get the app.</p>
+          <p className="flex justify-center mt-4 text-sm mb-2 ">Get the app.</p>
           <img src="./Images/GetApp.png" />
         </div>
       </div>
