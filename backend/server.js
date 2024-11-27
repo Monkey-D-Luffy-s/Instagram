@@ -43,6 +43,10 @@ app.post("/api/data", async (req, res) => {
   }
 });
 
+app.get("/api/hello", async (req, res) => {
+  res.status(200).json({ message: "Hello from Vercel!" });
+});
+
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
