@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Input from "./Input";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const links = [
   "Meta",
@@ -36,13 +37,29 @@ function Login() {
     console.log(formData);
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/data",
-        formData
+        "https://localhost:7294/api/Register/Login",
+        {
+          username: formData.ID,
+          password: formData.password,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "*/*",
+          },
+        }
       );
-      alert(response.data.message);
+      if (response != null && response.jwtToken != null) {
+        Cookies.set("jwtToken", response.jwtToken, {
+          expires: 1,
+          secure: true,
+          sameSite: "Strict",
+        });
+      }
+      // alert(response.data.message);
     } catch (error) {
       console.error(error);
-      alert("Error sending data");
+      // alert("Error sending data");
     }
     setIsWrong(true);
   };
@@ -59,14 +76,14 @@ function Login() {
                 <Input
                   label="Phone number, username or email"
                   type="text"
-                  name="user"
+                  name="username"
                   id="ID"
                   handleblur={handleBlur}
                 />
                 <Input
                   label="Password"
                   type="password"
-                  name="pass"
+                  name="password"
                   id="password"
                   handleblur={handleBlur}
                 />
